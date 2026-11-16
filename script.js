@@ -9,7 +9,7 @@
   // ---------------------------------------------------------
   // SETTINGS — 실제 운영 시 아래 값을 채워주세요.
   // ---------------------------------------------------------
-  const KAKAO_JS_KEY    = ''; // placeholder: 카카오 JavaScript 키 (https://developers.kakao.com/)
+  const KAKAO_JS_KEY    = '5b36bbb4893c250c3d8e89b9684a49ba'; // 카카오 JavaScript 키 (앱: 석주♡혜준)
   const SITE_URL        = 'https://sj-hj-wedding.github.io/';
   const SHARE_TITLE     = '채석주 ♡ 김혜준 27. 08. 21 토요일 18:00 에스가든웨딩';
   const SHARE_DESC      = '2027-08-21 토요일 오후 6시\n저희 두 사람의 결혼식에 초대합니다.';
