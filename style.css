@@ -24,12 +24,15 @@
   --c-bg: #FFFFFF;
   --c-text: #555250;
   --c-text-2: #7A7672;
-  --c-title: #8C7558;
-  --c-tan: #B6A786;
-  --c-tan-2: #A8987A;
-  --c-ph: #D9CFC2;
-  --c-line: #E6E3DF;
-  --c-mark: #FCEBB8;
+  /* 초여름 팔레트: 세이지 그린 */
+  --c-title: #6E8768;
+  --c-tan: #8FA687;
+  --c-tan-2: #7D9576;
+  --c-mint: #F4F7F1;
+  --c-ph: #D5DFD0;
+  --c-line: #E3E7E0;
+  --c-mark: #E4EEC8;
+  --c-shadow-leaf: rgba(64, 86, 58, 0.13);
   --f-serif: 'ChosunMyungjo', 'Nanum Myeongjo', 'AppleMyungjo', serif;
   --f-hand: 'BujangnimNunchi', 'Nanum Pen Script', cursive;
   --max-w: 420px;
@@ -69,7 +72,7 @@ img { display: block; max-width: 100%; }
 .photo {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(160deg, #E4DBCF 0%, var(--c-ph) 55%, #CBBFAF 100%);
+  background: linear-gradient(160deg, #E2E9DE 0%, var(--c-ph) 55%, #C6D2C0 100%);
 }
 .photo::after {
   content: attr(data-label);
@@ -93,6 +96,42 @@ img { display: block; max-width: 100%; }
   color: var(--c-title);
   letter-spacing: 0.02em;
   margin-bottom: 36px;
+}
+/* 섹션 제목 위 손그림 잎 가지 */
+.sec-title::before {
+  content: '';
+  display: block;
+  width: 46px; height: 28px;
+  margin: 0 auto 14px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 28' fill='none' stroke='%237E9A78' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 24C14 20 27 13 43 5'/%3E%3Cpath d='M11 21c-1.5-5 .5-9.5 5-12 1.5 5-.5 9.5-5 12z'/%3E%3Cpath d='M14 20c4.5.5 8.5 3.5 9.5 7.5-4.5 0-8.5-3-9.5-7.5z'/%3E%3Cpath d='M23 16c-.5-5 2.5-8.5 7-10 .5 5-2.5 8.5-7 10z'/%3E%3Cpath d='M26 14.5c4.5 0 7.5 2.5 8.5 6.5-4.5 0-7.5-2.5-8.5-6.5z'/%3E%3Cpath d='M34 10c.5-3.5 3-6 6.5-6.5-.5 3.5-3 6-6.5 6.5z'/%3E%3C/svg%3E") no-repeat center / contain;
+}
+
+/* 나뭇잎 그림자 (코모레비) */
+.has-leaves { position: relative; overflow: hidden; }
+.has-leaves > *:not(.leaf-shadow) { position: relative; z-index: 1; }
+.leaf-shadow {
+  position: absolute;
+  width: 340px; height: 340px;
+  color: var(--c-shadow-leaf);
+  filter: blur(5px);
+  pointer-events: none;
+  z-index: 0;
+  transform-origin: 0 0;
+  animation: leaf-sway 9s ease-in-out infinite alternate;
+}
+.leaf-shadow svg { width: 100%; height: 100%; display: block; }
+.leaf-shadow.ls-right { top: -70px; right: -120px; transform-origin: 100% 0; }
+.leaf-shadow.ls-left  { bottom: -110px; left: -150px; transform-origin: 50% 50%; transform: scaleX(-1); animation-name: leaf-sway-flip; animation-duration: 11s; }
+.leaf-shadow.ls-top   { top: -90px; left: -150px; transform-origin: 50% 50%; transform: scaleX(-1); animation-name: leaf-sway-flip; }
+@keyframes leaf-sway {
+  0%   { transform: rotate(-2.5deg) translate(0, 0); }
+  50%  { transform: rotate(1.5deg) translate(-6px, 4px); }
+  100% { transform: rotate(3deg) translate(4px, -3px); }
+}
+@keyframes leaf-sway-flip {
+  0%   { transform: scaleX(-1) rotate(-2deg) translate(0, 0); }
+  50%  { transform: scaleX(-1) rotate(2deg) translate(-5px, 4px); }
+  100% { transform: scaleX(-1) rotate(-1deg) translate(4px, -2px); }
 }
 .sec-body p { font-size: 14.5px; line-height: 1.85; color: var(--c-text); }
 .sec-body p + p { margin-top: 26px; }
@@ -125,7 +164,10 @@ img { display: block; max-width: 100%; }
 .hero-quote { font-size: 17px; line-height: 1.35; }
 
 /* ---------- 2. Greeting / full photo ---------- */
-.greeting { padding-top: 84px; padding-bottom: 84px; }
+.greeting {
+  padding-top: 84px; padding-bottom: 84px;
+  background: linear-gradient(to bottom, #fff 0%, var(--c-mint) 30%, var(--c-mint) 75%, #fff 100%);
+}
 .full-photo { width: 100%; aspect-ratio: 4 / 5; }
 
 /* ---------- 3. Quote ---------- */
@@ -151,13 +193,13 @@ img { display: block; max-width: 100%; }
   padding: 90px 28px 110px;
   background:
     linear-gradient(to bottom, #fff 0%, rgba(255,255,255,0) 14%, rgba(255,255,255,0) 86%, #fff 100%),
-    radial-gradient(ellipse at 30% 40%, #F7F2E8 0%, #F3EDE1 60%, #EFE8DA 100%);
+    radial-gradient(ellipse at 30% 40%, #F5F8F1 0%, #EEF3E9 60%, #E7EEE2 100%);
 }
 .letter-card { position: relative; }
 .letter-photo {
   aspect-ratio: 362 / 512;
   border-radius: 4px;
-  box-shadow: 0 4px 14px rgba(80, 60, 30, 0.18);
+  box-shadow: 0 4px 14px rgba(50, 70, 45, 0.2);
 }
 .letter-photo::after { align-items: flex-start; padding-top: 30%; }
 .letter-text {
@@ -436,5 +478,6 @@ mark { background: var(--c-mark); color: inherit; padding: 0 2px; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   [data-aos] { opacity: 1; transform: none; transition: none; }
+  .leaf-shadow { animation: none; }
   .lightbox, .lightbox-img, .toast { transition: none; }
 }
