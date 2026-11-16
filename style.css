@@ -265,7 +265,23 @@ img { display: block; max-width: 100%; }
   font-family: system-ui, sans-serif; font-size: 12px; font-weight: 600; color: #333;
 }
 .map-pin span { margin-top: 2px; background: rgba(255,255,255,0.85); padding: 1px 6px; border-radius: 3px; }
+.map-canvas { position: absolute; inset: 0; z-index: 1; display: none; }
+.map.is-live { background: #F1EFEA; }
+.map.is-live .map-canvas { display: block; }
+.map.is-live .map-pin { display: none; }
+.map-label {
+  margin-bottom: 44px;
+  padding: 3px 8px;
+  background: #fff;
+  border: 1px solid #D5D2CE;
+  border-radius: 3px;
+  font-family: system-ui, -apple-system, 'Apple SD Gothic Neo', sans-serif;
+  font-size: 12px; font-weight: 600; color: #333;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+}
 .map-copy {
+  z-index: 3;
   position: absolute; right: 8px; bottom: 8px;
   padding: 4px 10px;
   background: #fff;

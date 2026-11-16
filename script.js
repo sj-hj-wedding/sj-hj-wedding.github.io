@@ -16,6 +16,8 @@
   const SHARE_IMAGE     = SITE_URL + 'images/og-thumbnail.jpg'; // 카톡 카드 사진 (가로 1200 × 세로 800 권장)
   const SHARE_IMAGE_W   = 1200;
   const SHARE_IMAGE_H   = 800;
+  const VENUE_NAME      = '에스가든웨딩 동탄점';
+  const VENUE_ADDR      = '경기 화성시 동탄영천로 150'; // 지도 위치를 찾을 때 쓰는 주소 (도로명까지만)
   const WEDDING_DATE    = { y: 2027, m: 8, d: 21 };
   const GALLERY_COUNT   = 12;  // images/gallery/01.jpg ~ 12.jpg
   const GALLERY_VISIBLE = 9;   // 처음에 보이는 개수 (나머지는 '더 보기')
@@ -381,9 +383,46 @@
   }
 
   // ---------------------------------------------------------
+  // 9. 카카오맵 (실패하면 그림 지도 그대로 유지)
+  //    카카오 디벨로퍼스 > 내 앱 > 카카오맵 사용 설정이 켜져 있어야 함
+  // ---------------------------------------------------------
+  function setupMap() {
+    const box = $('.map');
+    const canvas = $('#map-canvas');
+    if (!box || !canvas || !KAKAO_JS_KEY) return;
+
+    const s = document.createElement('script');
+    s.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${KAKAO_JS_KEY}&autoload=false&libraries=services`;
+    s.onload = () => {
+      if (!window.kakao || !window.kakao.maps) return;
+      kakao.maps.load(() => {
+        new kakao.maps.services.Geocoder().addressSearch(VENUE_ADDR, (res, status) => {
+          if (status !== kakao.maps.services.Status.OK || !res.length) return;
+          const pos = new kakao.maps.LatLng(res[0].y, res[0].x);
+          box.classList.add('is-live');
+          const map = new kakao.maps.Map(canvas, { center: pos, level: 4 });
+          // 스크롤하다 지도가 손가락을 잡아먹지 않도록 고정
+          map.setDraggable(false);
+          map.setZoomable(false);
+          new kakao.maps.Marker({ map, position: pos });
+          const label = document.createElement('div');
+          label.className = 'map-label';
+          label.textContent = VENUE_NAME;
+          new kakao.maps.CustomOverlay({ map, position: pos, content: label, yAnchor: 1 });
+          // 지도를 누르면 카카오맵에서 크게 보기
+          const link = `https://map.kakao.com/link/map/${encodeURIComponent(VENUE_NAME)},${res[0].y},${res[0].x}`;
+          kakao.maps.event.addListener(map, 'click', () => window.open(link, '_blank', 'noopener'));
+        });
+      });
+    };
+    document.head.appendChild(s);
+  }
+
+  // ---------------------------------------------------------
   // INIT
   // ---------------------------------------------------------
   function init() {
+    setupMap();
     setupPhotos();
     setupCalendar();
     setupGallery();
