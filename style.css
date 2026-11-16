@@ -380,6 +380,19 @@ mark { background: var(--c-mark); color: inherit; padding: 0 2px; }
 .shuttle-row p { line-height: 1.7; }
 .shuttle .route { color: var(--c-title); font-size: 14.5px; }
 .shuttle .route i { font-style: normal; margin: 0 2px; }
+.shuttle .times { margin-top: 6px; font-size: 13px; color: var(--c-text-2); }
+.shuttle .times span {
+  display: inline-block;
+  margin: 2px 2px 0 0;
+  padding: 0 7px;
+  border: 1px solid #CFD9C9;
+  border-radius: 12px;
+  background: #fff;
+  font-size: 12.5px;
+  color: #3D3A37;
+  line-height: 1.8;
+}
+.shuttle .times span.last { border-color: var(--c-tan); color: var(--c-title); }
 .shuttle b { font-weight: normal; background: var(--c-mark); padding: 0 2px; color: #3D3A37; }
 
 /* ---------- 10. Account ---------- */
