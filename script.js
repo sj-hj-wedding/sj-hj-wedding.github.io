@@ -11,9 +11,9 @@
   // ---------------------------------------------------------
   const KAKAO_JS_KEY    = '1bba4e659f27bfe21428069607505228'; // 카카오 JavaScript 키 (앱: 석주♡혜준)
   const SITE_URL        = 'https://sj-hj-wedding.github.io/';
-  const SHARE_TITLE     = '채석주 ♡ 김혜준 27. 08. 21 토요일 18:00 에스가든웨딩';
+  const SHARE_TITLE     = '채석주 ෆ 김혜준 27. 08. 21 토요일 18:00 에스가든웨딩동탄';
   const SHARE_DESC      = '2027-08-21 토요일 오후 6시\n저희 두 사람의 결혼식에 초대합니다.';
-  const SHARE_IMAGE     = SITE_URL + 'images/og-thumbnail.png'; // 카톡 카드 사진 (가로 1200 × 세로 800 권장)
+  const SHARE_IMAGE     = SITE_URL + 'images/og-thumbnail.jpg'; // 카톡 카드 사진 (가로 1200 × 세로 800 권장)
   const SHARE_IMAGE_W   = 1200;
   const SHARE_IMAGE_H   = 800;
   const WEDDING_DATE    = { y: 2027, m: 8, d: 21 };
