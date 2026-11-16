@@ -10,9 +10,12 @@
   // SETTINGS — 실제 운영 시 아래 값을 채워주세요.
   // ---------------------------------------------------------
   const KAKAO_JS_KEY    = ''; // placeholder: 카카오 JavaScript 키 (https://developers.kakao.com/)
-  const SHARE_TITLE     = '8월 21일 채석주 ♥ 김혜준 결혼합니다';
-  const SHARE_DESC      = '2027년 8월 21일 토요일 오후 6시\n에스가든웨딩 동탄점';
-  const SHARE_IMAGE     = location.origin + location.pathname.replace(/\/[^/]*$/, '/') + 'images/og-thumbnail.png';
+  const SITE_URL        = 'https://sj-hj-wedding.github.io/';
+  const SHARE_TITLE     = '채석주 ♡ 김혜준 27. 08. 21 토요일 18:00 에스가든웨딩';
+  const SHARE_DESC      = '2027-08-21 토요일 오후 6시\n저희 두 사람의 결혼식에 초대합니다.';
+  const SHARE_IMAGE     = SITE_URL + 'images/og-thumbnail.png'; // 카톡 카드 사진 (가로 1200 × 세로 800 권장)
+  const SHARE_IMAGE_W   = 1200;
+  const SHARE_IMAGE_H   = 800;
   const WEDDING_DATE    = { y: 2027, m: 8, d: 21 };
   const GALLERY_COUNT   = 12;  // images/gallery/01.jpg ~ 12.jpg
   const GALLERY_VISIBLE = 9;   // 처음에 보이는 개수 (나머지는 '더 보기')
@@ -359,9 +362,11 @@
               title: SHARE_TITLE,
               description: SHARE_DESC,
               imageUrl: SHARE_IMAGE,
-              link: { mobileWebUrl: location.href, webUrl: location.href }
+              imageWidth: SHARE_IMAGE_W,
+              imageHeight: SHARE_IMAGE_H,
+              link: { mobileWebUrl: SITE_URL, webUrl: SITE_URL }
             },
-            buttons: [{ title: '청첩장 보기', link: { mobileWebUrl: location.href, webUrl: location.href } }]
+            buttons: [{ title: '자세히 보기', link: { mobileWebUrl: SITE_URL, webUrl: SITE_URL } }]
           });
           return;
         } catch (e) { /* fallthrough */ }
