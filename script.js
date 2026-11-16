@@ -338,7 +338,7 @@
           btn.setAttribute('aria-pressed', 'false');
         }
       } catch (e) {
-        showToast('음원 파일을 찾을 수 없어요 (audio/bgm.mp3)');
+        showToast('음원 파일을 찾을 수 없어요 (audio 폴더)');
       }
     });
   }
