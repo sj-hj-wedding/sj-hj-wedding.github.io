@@ -358,6 +358,30 @@ img { display: block; max-width: 100%; }
 .ways p.gap { margin-top: 12px; }
 mark { background: var(--c-mark); color: inherit; padding: 0 2px; }
 
+/* 셔틀버스 안내 카드 */
+.ways .badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 9px;
+  border-radius: 20px;
+  background: var(--c-tan);
+  color: #fff;
+  font-size: 12px;
+  vertical-align: 2px;
+}
+.shuttle {
+  border: 1px solid var(--c-line);
+  border-radius: 6px;
+  background: var(--c-mint);
+  overflow: hidden;
+}
+.shuttle-row { padding: 12px 16px; }
+.shuttle-row + .shuttle-row { border-top: 1px dashed #D3DCCD; }
+.shuttle-row p { line-height: 1.7; }
+.shuttle .route { color: var(--c-title); font-size: 14.5px; }
+.shuttle .route i { font-style: normal; margin: 0 2px; }
+.shuttle b { font-weight: normal; background: var(--c-mark); padding: 0 2px; color: #3D3A37; }
+
 /* ---------- 10. Account ---------- */
 .account { padding: 90px 5px 90px; }
 .account .sec-body { padding: 0 23px; margin-bottom: 44px; }
