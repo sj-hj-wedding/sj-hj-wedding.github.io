@@ -13,7 +13,7 @@
   const SITE_URL        = 'https://sj-hj-wedding.github.io/';
   const SHARE_TITLE     = '석주 ෆ 혜준 결혼합니다';
   const SHARE_DESC      = '2027. 8. 21. 토요일 오후 6시\n에스가든웨딩 동탄점';
-  const SHARE_IMAGE     = SITE_URL + 'images/og-ticket.jpg'; // 카톡 카드 이미지 (티켓 모양, 1200 × 630)
+  const SHARE_IMAGE     = SITE_URL + 'images/og-ticket.jpg?v=2'; // 카톡 카드 이미지 (티켓 모양, 1200 × 630)
   const SHARE_IMAGE_W   = 1200;
   const SHARE_IMAGE_H   = 630;
   const VENUE_NAME      = '에스가든웨딩 동탄점';
